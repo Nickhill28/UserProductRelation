@@ -1,28 +1,27 @@
-import { INTEGER, STRING, DOUBLE } from 'sequelize';
+const Sequelize = require('sequelize');
 
-import { define } from '../util/database';
+const sequelize = require('../util/database');
 
-const Product = define('product', {
+const Product = sequelize.define('product', {
   id: {
-    type: INTEGER,
+    type: Sequelize.INTEGER,
     autoIncrement: true,
     allowNull: false,
     primaryKey: true
   },
-  title: STRING,
+  title: Sequelize.STRING,
   price: {
-    type: DOUBLE,
+    type: Sequelize.DOUBLE,
     allowNull: false
   },
   imageUrl: {
-    type: STRING,
+    type: Sequelize.STRING,
     allowNull: false
   },
   description: {
-    type: STRING,
+    type: Sequelize.STRING,
     allowNull: false
   }
 });
 
-export default Product;
-
+module.exports = Product;
